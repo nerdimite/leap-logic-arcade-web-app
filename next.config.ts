@@ -1,7 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+  images: {
+    remotePatterns: [new URL("https://th.bing.com/th/id/**")],
+  },
 };
-
-export default nextConfig;
