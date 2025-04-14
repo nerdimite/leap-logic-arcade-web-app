@@ -23,10 +23,6 @@ const data = {
       title: "127.0.0.1",
       path: "/dashboard",
     },
-    {
-      title: "Leaderboard",
-      path: "/dashboard/leaderboard",
-    },
   ],
   navMain: [
     {
@@ -39,6 +35,10 @@ const data = {
         {
           title: "Vote",
           path: "/dashboard/pic-perfect/vote",
+        },
+        {
+          title: "Leaderboard",
+          path: "/dashboard/pic-perfect/leaderboard",
         },
       ],
     },
