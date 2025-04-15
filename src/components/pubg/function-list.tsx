@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 import { toast } from "sonner";
 import { FunctionBadge } from "@/components/ui/function-badge";
 import { FunctionEditorDialog } from "./function-editor-dialog";
-import { SchemaViewer } from "./schema-viewer";
+import { SchemaDisplay } from "./schema-display";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -230,6 +230,12 @@ export function FunctionList({ teamName }: Readonly<FunctionListProps>) {
     (tool) => tool.name === selectedTool
   );
 
+  // Filter out tools that are already added
+  const availableToolsFiltered = availableTools.filter(
+    (availableTool: Tool) =>
+      !tools.some((tool) => tool.name === availableTool.name)
+  );
+
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
@@ -238,7 +244,13 @@ export function FunctionList({ teamName }: Readonly<FunctionListProps>) {
           variant="outline"
           size="icon"
           className="h-8 w-8"
-          onClick={() => setIsAddDialogOpen(true)}
+          onClick={() => {
+            if (availableToolsFiltered.length === 0) {
+              toast.info("All available functions have been added");
+              return;
+            }
+            setIsAddDialogOpen(true);
+          }}
         >
           <Plus className="h-4 w-4" />
         </Button>
@@ -297,11 +309,11 @@ export function FunctionList({ teamName }: Readonly<FunctionListProps>) {
       />
 
       <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
           <DialogHeader>
             <DialogTitle>Add Function</DialogTitle>
           </DialogHeader>
-          <div className="grid gap-4 py-4">
+          <div className="grid gap-4 py-4 overflow-y-auto pr-2">
             <div className="grid gap-2">
               <Label htmlFor="function">Select Function</Label>
               <Select value={selectedTool} onValueChange={handleToolSelect}>
@@ -309,15 +321,21 @@ export function FunctionList({ teamName }: Readonly<FunctionListProps>) {
                   <SelectValue placeholder="Select a function" />
                 </SelectTrigger>
                 <SelectContent>
-                  {availableTools.map((tool) => (
-                    <SelectItem
-                      key={tool.name}
-                      value={tool.name}
-                      className="text-base"
-                    >
-                      {tool.name}
+                  {availableToolsFiltered.length === 0 ? (
+                    <SelectItem value="no-functions-available" disabled>
+                      No more functions available
                     </SelectItem>
-                  ))}
+                  ) : (
+                    availableToolsFiltered.map((tool) => (
+                      <SelectItem
+                        key={tool.name}
+                        value={tool.name}
+                        className="text-base"
+                      >
+                        {tool.name}
+                      </SelectItem>
+                    ))
+                  )}
                 </SelectContent>
               </Select>
             </div>
@@ -328,19 +346,19 @@ export function FunctionList({ teamName }: Readonly<FunctionListProps>) {
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value)}
                 placeholder="Enter function description..."
-                className="min-h-[100px] max-h-[200px] resize-none text-base"
+                className="min-h-[80px] max-h-[120px] resize-none text-base"
               />
             </div>
             {selectedToolData && (
               <div className="grid gap-2">
                 <Label>Schema</Label>
-                <div className="rounded-md border p-4">
-                  <SchemaViewer parameters={selectedToolData.parameters} />
+                <div className="rounded-md border p-4 max-h-[300px] overflow-y-auto">
+                  <SchemaDisplay schema={selectedToolData.parameters} />
                 </div>
               </div>
             )}
           </div>
-          <DialogFooter>
+          <DialogFooter className="flex-shrink-0 pt-2">
             <Button
               variant="outline"
               onClick={() => {

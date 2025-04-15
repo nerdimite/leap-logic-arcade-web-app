@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { SchemaViewer } from "./schema-viewer";
+import { SchemaDisplay } from "./schema-display";
 
 interface Tool {
   name: string;
@@ -107,29 +107,29 @@ export function FunctionEditorDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
         <DialogHeader>
           <DialogTitle>Edit Function: {tool.name}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4 overflow-y-auto pr-2">
           <div className="grid gap-2">
             <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="min-h-[100px] max-h-[200px] resize-none text-base"
+              className="min-h-[80px] max-h-[120px] resize-none text-base"
               placeholder="Enter function description..."
             />
           </div>
           <div className="grid gap-2">
             <Label>Schema</Label>
-            <div className="rounded-md border p-4">
-              <SchemaViewer parameters={tool.parameters} />
+            <div className="rounded-md border p-4 max-h-[300px] overflow-y-auto">
+              <SchemaDisplay schema={tool.parameters} />
             </div>
           </div>
         </div>
-        <DialogFooter>
+        <DialogFooter className="flex-shrink-0 pt-2">
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
