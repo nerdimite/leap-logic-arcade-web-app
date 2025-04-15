@@ -110,14 +110,10 @@ export function VotingGrid({
               </div>
             ) : (
               <>
-                <Image
+                <img
                   src={entry.imageUrl}
                   alt="Submission"
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-contain"
-                  priority={false}
-                  draggable={false}
                   onError={() => handleImageError(entry.teamName)}
                 />
                 <div

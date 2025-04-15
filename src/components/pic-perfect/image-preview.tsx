@@ -21,11 +21,10 @@ export function ImagePreview({ imageUrl, onError, onLoad }: ImagePreviewProps) {
       </CardHeader>
       <CardContent className="relative flex aspect-video items-center justify-center overflow-hidden p-0">
         <div className="relative h-full w-full">
-          <Image
+          <img
             src={imageUrl}
             alt="Preview"
-            fill
-            className="object-contain"
+            className="object-cover w-full h-full"
             onError={onError}
             onLoad={onLoad}
           />
