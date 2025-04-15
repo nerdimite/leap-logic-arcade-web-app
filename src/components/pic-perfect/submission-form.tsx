@@ -34,7 +34,8 @@ export function SubmissionForm({
   }, []);
 
   const validateBingImageUrl = (url: string) => {
-    return url.startsWith("https://th.bing.com/th/id/");
+    // return url.startsWith("https://th.bing.com/th/id/");
+    return true;
   };
 
   const handleImageUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
