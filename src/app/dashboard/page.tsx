@@ -94,7 +94,7 @@ export default function Page() {
               </div>
               <Button asChild className="mt-4 w-full group-hover:bg-primary">
                 <Link
-                  href="/dashboard/pubg/mission"
+                  href="/dashboard/pubg/instructions"
                   className="flex items-center justify-center gap-2"
                 >
                   Start Challenge

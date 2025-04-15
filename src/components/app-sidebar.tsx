@@ -46,7 +46,11 @@ const data = {
       title: "P.U.B.G. Challenge",
       items: [
         {
-          title: "Mission Prometheus",
+          title: "Mission Brief",
+          path: "/dashboard/pubg/instructions",
+        },
+        {
+          title: "Prometheus",
           path: "/dashboard/pubg/mission",
         },
         // {
