@@ -39,8 +39,8 @@ export default function Page() {
             </div>
             <CardDescription className="text-base">
               Test your image prompting skills and create a prompt that matches
-              the provided image. Get as close as possible to the provided
-              image and deceive other teams into thinking your image is the original.
+              the provided image. Get as close as possible to the provided image
+              and deceive other teams into thinking your image is the original.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -76,8 +76,10 @@ export default function Page() {
               </CardTitle>
             </div>
             <CardDescription className="text-base">
-              Prompt Utility Battle Ground: Prompt your way through
-              fixing a spaceship and saving it from a crash.
+              Prompt Utility Battle Ground: Prompt your way through fixing a
+              spaceship and saving it from a crash. You will be working with an
+              AI Agent to repair the spaceship. Your prompt engineering skills
+              will be put to the test.
             </CardDescription>
           </CardHeader>
           <CardContent>
