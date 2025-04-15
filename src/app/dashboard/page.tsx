@@ -38,8 +38,9 @@ export default function Page() {
               </CardTitle>
             </div>
             <CardDescription className="text-base">
-              Test your image processing skills! Create algorithms to enhance,
-              transform, and analyze images in creative ways.
+              Test your image prompting skills and create a prompt that matches
+              the provided image. Get as close as possible to the provided
+              image and deceive other teams into thinking your image is the original.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -75,8 +76,8 @@ export default function Page() {
               </CardTitle>
             </div>
             <CardDescription className="text-base">
-              Prompt-based Unified Battle Ground: Compete in real-time coding
-              battles using AI prompts and algorithmic thinking!
+              Prompt Utility Battle Ground: Prompt your way through
+              fixing a spaceship and saving it from a crash.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -84,14 +85,14 @@ export default function Page() {
               <div className="text-sm text-muted-foreground">
                 Features:
                 <ul className="ml-4 mt-1 list-disc">
-                  <li>AI-powered prompts</li>
-                  <li>Real-time competitions</li>
-                  <li>Dynamic scoring system</li>
+                  <li>Prompt Engineering</li>
+                  <li>Agentic AI</li>
+                  <li>Reasoning and Planning</li>
                 </ul>
               </div>
               <Button asChild className="mt-4 w-full group-hover:bg-primary">
                 <Link
-                  href="/dashboard/pubg/capture"
+                  href="/dashboard/pubg/mission"
                   className="flex items-center justify-center gap-2"
                 >
                   Start Challenge
