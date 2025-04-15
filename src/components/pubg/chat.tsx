@@ -87,9 +87,9 @@ export function Chat({
 
 function MessageBubble({ message }: Readonly<{ message: ChatMessage }>) {
   const getBubbleStyle = (sender: string) => {
-    if (sender === "user") return "ml-auto bg-primary text-primary-foreground";
+    if (sender === "user") return "ml-auto bg-secondary text-secondary-foreground";
     if (sender === "ai")
-      return "mr-auto bg-secondary text-secondary-foreground";
+      return "mr-auto bg-primary text-primary-foreground";
     return "mx-auto bg-muted text-muted-foreground";
   };
 

@@ -4,6 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Chat, ChatMessage } from "@/components/pubg/chat";
+import { AgentEditor } from "@/components/pubg/agent-editor";
 import { toast } from "sonner";
 
 // Define the API response format
@@ -131,15 +132,15 @@ export default function MissionPage() {
   return (
     <div className="container mx-auto flex flex-col gap-6 p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Left Column - Empty Card for now */}
+        {/* Left Column - Agent Editor */}
         <Card className="flex h-[80vh] flex-col">
           <CardHeader>
             <CardTitle className="font-press-start-2p text-xl text-primary">
               AI Agent Editor
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex-1 overflow-hidden p-6">
-            {/* Empty for now, will be filled later */}
+          <CardContent className="flex-1 overflow-y-auto p-6">
+            <AgentEditor teamName={user?.username || "anonymous"} />
           </CardContent>
         </Card>
 
