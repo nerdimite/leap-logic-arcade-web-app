@@ -46,12 +46,12 @@ const data = {
       title: "P.U.B.G. Challenge",
       items: [
         {
-          title: "Capture the Prompt",
-          path: "/dashboard/pubg/capture",
+          title: "Mission Prometheus",
+          path: "/dashboard/pubg/mission",
         },
         {
-          title: "Taskmaster",
-          path: "/dashboard/pubg/taskmaster",
+          title: "Leaderboard",
+          path: "/dashboard/pubg/leaderboard",
         },
       ],
     },
