@@ -49,10 +49,10 @@ const data = {
           title: "Mission Prometheus",
           path: "/dashboard/pubg/mission",
         },
-        {
-          title: "Leaderboard",
-          path: "/dashboard/pubg/leaderboard",
-        },
+        // {
+        //   title: "Leaderboard",
+        //   path: "/dashboard/pubg/leaderboard",
+        // },
       ],
     },
   ],
