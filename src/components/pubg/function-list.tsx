@@ -71,8 +71,10 @@ export function FunctionList({ teamName }: Readonly<FunctionListProps>) {
   const [isAddingTool, setIsAddingTool] = useState(false);
 
   useEffect(() => {
-    fetchTools();
-    fetchAvailableTools();
+    if (teamName) {
+      fetchTools();
+      fetchAvailableTools();
+    }
   }, [teamName]);
 
   const fetchTools = async () => {
